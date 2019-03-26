@@ -117,12 +117,6 @@
         </a>
       </li>
 
-      <li>
-        <a href="pages/tables/data.html">
-          <i class="fa fa-table"></i> <span>Tables</span>
-        </a>
-      </li>
-
       <li class="treeview">
         <a href="#">
           <i class="fa fa-folder"></i> <span>Examples</span>

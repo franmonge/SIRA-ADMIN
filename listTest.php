@@ -38,8 +38,14 @@ if ($conn->connect_error){
     }
     $Codigo .= "
     </tbody>
-      </table>
-      </div>
+      <tfoot>
+        <tr>
+          <th>ID</th>
+          <th>Tipo de Sangre</th>
+        </tr>
+      </tfoot>
+    </table>
+    </div>
         <!-- /.box-body -->
     </div>
     <!-- /.box -->
@@ -130,13 +136,13 @@ $conn->close();
  <script>
    $(function () {
      $('#example1').DataTable()
-     $('#example2').DataTable({
+     $('#table-Miembros').DataTable({
        'paging'      : true,
-       'lengthChange': false,
-       'searching'   : false,
+       'lengthChange': true,
+       'searching'   : true,
        'ordering'    : true,
        'info'        : true,
-       'autoWidth'   : false
+       'autoWidth'   : true
      })
    })
  </script>
