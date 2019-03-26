@@ -22,6 +22,7 @@
             <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
             <span class="hidden-xs">Marvin Santos</span>
           </a>
+
           <ul class="dropdown-menu">
             <!-- User image -->
             <li class="user-header">
@@ -46,25 +47,54 @@
 
 
 <!-- Left side column. contains the logo and sidebar -->
-
 <aside class="main-sidebar">
   <!-- sidebar: style can be found in sidebar.less -->
   <section class="sidebar">
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header"></li>
+
       <li class="active treeview">
         <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
       </li>
 
       <li>
+        <a href="#"> <i class="fa fa-group"></i> <span>Grupos</span></a>
+      </li>
+
+      <li>
+        <a href="pages/calendar.html"> <i class="fa fa-calendar"></i> <span>Presentaciones</span></a>
+      </li>
+
+      <li>
         <a href="pages/layout/boxed.html">
-          <i class="fa fa-files-o"></i>
-          <span>Layout Options</span>
+          <i class="fa fa-user"></i>
+          <span>Miembros</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="pages/layout/boxed.html"><i class="fa fa-plus"></i><span>Solicitudes</span>
           <span class="pull-right-container">
             <span class="label label-primary pull-right">4</span>
           </span>
         </a>
+      </li>
+
+      <li>
+        <a href="#"> <i class="fa fa-check"></i> <span>Asistencia</span></a>
+      </li>
+
+      <li>
+        <a href="#"> <i class="fa fa-file"></i> <span>Reportes</span></a>
+      </li>
+
+      <li>
+        <a href="#"> <i class="fa fa-image"></i> <span>Galería</span></a>
+      </li>
+
+      <li>
+        <a href="pages/layout/boxed.html"> <i class="fa fa-files-o"></i> <span>Layout Options</span></a>
       </li>
 
       <li class="treeview">
@@ -79,6 +109,7 @@
           <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
         </ul>
       </li>
+
       <li>
         <a href="pages/UI/icons.html">
           <i class="fa fa-laptop"></i>
@@ -89,12 +120,6 @@
       <li>
         <a href="pages/tables/data.html">
           <i class="fa fa-table"></i> <span>Tables</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="pages/calendar.html">
-          <i class="fa fa-calendar"></i> <span>Calendar</span>
         </a>
       </li>
 
@@ -110,8 +135,8 @@
           <li><a href="pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
         </ul>
       </li>
+
     </ul>
   </section>
   <!-- /.sidebar -->
 </aside>
-<!-- Content Wrapper. Contains page content -->
