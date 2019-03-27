@@ -38,14 +38,14 @@ if ($conn->connect_error){
     }
     $Codigo .= "
     </tbody>
-    <tfoot>
-      <tr>
-        <th>ID</th>
-        <th>Tipo de Sangre</th>
-      </tr>
+      <tfoot>
+        <tr>
+          <th>ID</th>
+          <th>Tipo de Sangre</th>
+        </tr>
       </tfoot>
-      </table>
-      </div>
+    </table>
+    </div>
         <!-- /.box-body -->
     </div>
     <!-- /.box -->
