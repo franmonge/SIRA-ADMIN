@@ -6,42 +6,14 @@
   <title>SIRA | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <?php include('headerLinks.php')?>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+  <div class="wrapper">
+    <?php include('adminNav.php')?>
 
-<?php include('adminNav.php')?>
-
-
-  <div class="content-wrapper">
+    <div class="content-wrapper">
 
     <!-- Main content -->
     <section class="content">
@@ -166,39 +138,6 @@
         </div>
       </div>
 
-      <!--end user list  -->
-      <!-- Calendar -->
-      <div class="box box-solid bg-green-gradient">
-        <div class="box-header">
-          <i class="fa fa-calendar"></i>
-
-          <h3 class="box-title">Calendar</h3>
-          <!-- tools box -->
-          <div class="pull-right box-tools">
-            <!-- button with a dropdown -->
-            <div class="btn-group">
-              <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-bars"></i></button>
-              <ul class="dropdown-menu pull-right" role="menu">
-                <li><a href="#">Add new event</a></li>
-                <li><a href="#">Clear events</a></li>
-                <li class="divider"></li>
-                <li><a href="#">View calendar</a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- /. tools -->
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body no-padding">
-          <!--The calendar -->
-          <div id="calendar" style="width: 100%"></div>
-        </div>
-        <!-- /.box-body -->
-      </div>
-
-
-
       <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
@@ -231,7 +170,7 @@
             </form>
           </div>
           <!-- /.box -->
-
+  </div>
 
 <?php include('adminFooter.php')?>
 

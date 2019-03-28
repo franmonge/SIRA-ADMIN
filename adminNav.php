@@ -1,6 +1,46 @@
+<?php  
+  $archivo_actual = $_SERVER['PHP_SELF'] ; //Regresa el nombre del archivo actual
+  switch($archivo_actual) //Valido en que archivo estoy para generar mi CSS de selección
+  {
+    case "/sira-admin/admin.php":        
+      $a = "class=\"active\"";
+      $b = "";$c = "";$d = "";$e = "";$f = "";$g = "";$h = "";
+      break;
+    case "/sira-admin/adminGrupos.php":        
+      $b = "class=\"active\"";
+      $a = "";$c = "";$d = "";$e = "";$f = "";$g = "";$h = "";
+      break;
+    case "/sira-admin/adminPresentaciones.php":        
+      $c = "class=\"active\"";
+      $a = "";$b = "";$d = "";$e = "";$f = "";$g = "";$h = "";
+      break;
+    case "/sira-admin/adminMiembros.php":        
+      $d = "class=\"active\"";
+      $a = "";$b = "";$c = "";$e = "";$f = "";$g = "";$h = "";
+      break;
+    case "/sira-admin/adminSolicitudes.php":        
+      $e = "class=\"active\"";
+      $a = "";$b = "";$c = "";$d = "";$f = "";$g = "";$h = "";
+      break;
+    case "/sira-admin/adminAsistencia.php":        
+      $f = "class=\"active\"";
+      $a = "";$b = "";$c = "";$d = "";$e = "";$g = "";$h = "";
+      break;
+    case "/sira-admin/adminReportes.php":        
+      $g = "class=\"active\"";
+      $a = "";$b = "";$c = "";$d = "";$e = "";$f = "";$h = "";
+      break;
+    case "/sira-admin/adminGaleria.php":        
+      $h = "class=\"active\"";
+      $a = "";$b = "";$c = "";$d = "";$e = "";$f = "";$g = "";
+      break;
+  }        
+?>
+
+
 <header class="main-header">
   <!-- Logo -->
-  <a href="index.html" class="logo">
+  <a href="admin.php" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>SIRA</b></span>
     <!-- logo for regular state and mobile devices -->
@@ -54,47 +94,40 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header"></li>
 
-      <li class="active treeview">
-        <a href="#"> <i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+      <li <?php echo $a; ?>>
+        <a href="admin.php"> <i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
       </li>
 
-      <li>
-        <a href="#"> <i class="fa fa-group"></i> <span>Grupos</span></a>
+      <li <?php echo $b; ?>>
+        <a href="adminGrupos.php"> <i class="fa fa-group"></i> <span>Grupos</span></a>
       </li>
 
-      <li>
-        <a href="pages/calendar.html"> <i class="fa fa-calendar"></i> <span>Presentaciones</span></a>
+      <li <?php echo $c; ?>>
+        <a href="adminPresentaciones.php"> <i class="fa fa-calendar"></i> <span>Presentaciones</span></a>
       </li>
 
-      <li>
-        <a href="pages/layout/boxed.html">
-          <i class="fa fa-user"></i>
-          <span>Miembros</span>
-        </a>
+      <li <?php echo $d; ?>>
+        <a href="adminMiembros.php"><i class="fa fa-user"></i><span>Miembros</span></a>
       </li>
 
-      <li>
-        <a href="pages/layout/boxed.html"><i class="fa fa-plus"></i><span>Solicitudes</span>
+      <li <?php echo $e; ?>>
+        <a href="adminSolicitudes.php"><i class="fa fa-plus"></i><span>Solicitudes</span>
           <span class="pull-right-container">
             <span class="label label-primary pull-right">4</span>
           </span>
         </a>
       </li>
 
-      <li>
+      <li <?php echo $f; ?>>
         <a href="#"> <i class="fa fa-check"></i> <span>Asistencia</span></a>
       </li>
 
-      <li>
+      <li <?php echo $g; ?>>
         <a href="#"> <i class="fa fa-file"></i> <span>Reportes</span></a>
       </li>
 
-      <li>
+      <li <?php echo $g; ?>>
         <a href="#"> <i class="fa fa-image"></i> <span>Galería</span></a>
-      </li>
-
-      <li>
-        <a href="pages/layout/boxed.html"> <i class="fa fa-files-o"></i> <span>Layout Options</span></a>
       </li>
 
       <li class="treeview">
@@ -134,3 +167,4 @@
   </section>
   <!-- /.sidebar -->
 </aside>
+
