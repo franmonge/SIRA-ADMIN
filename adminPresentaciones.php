@@ -25,25 +25,26 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="form-row ">
-          <div class="form-group col-md-6">
-            <label>Seleccione el Grupo: </label>
-            <select class="browser-default custom-select">
-              <option selected>Seleccione el grupo</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-        </div>       
+      <div class="col-md-12">
+        <div class="form-group col-md-6">
+          <label>Seleccione el grupo</label>
+          <select class="form-control select2" style="width: 100%;">
+            <option selected="selected">Alabama</option>
+            <option>Alaska</option>
+            <option>California</option>
+            <option>Delaware</option>
+            <option>Tennessee</option>
+            <option>Texas</option>
+            <option>Washington</option>
+          </select>
+        </div>
       </div>
 
       <div class="row">
         <div class="col-md-3">
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h4 class="box-title">Draggable Events</h4>
+              <h4 class="box-title">Presentaciones Creadas</h4>
             </div>
             <div class="box-body">
               <!-- the events -->
@@ -66,7 +67,7 @@
           <!-- /. box -->
           <div class="box box-solid">
             <div class="box-header with-border">
-              <h3 class="box-title">Create Event</h3>
+              <h3 class="box-title">Crear Presentación</h3>
             </div>
             <div class="box-body">
               <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
