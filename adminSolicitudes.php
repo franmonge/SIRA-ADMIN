@@ -1,50 +1,45 @@
 <?php
-  function tipoSangre(){
+  function solicitudesPendientes(){
   require('BD_Consultas\Conexion.php');
   if ($conn->connect_error){
     die("Connection failed: " . $conn->connect_error);
   }else{
-    $query = "SELECT id, tipoSangre FROM tiposangre";
+    $query = "  SELECT id, nombre, apellidos, email FROM usuario WHERE estado='Pendiente'";
     $result = mysqli_query($conn, $query);
     if($result->num_rows > 0){
       $Codigo = "
-      <!-- Content Header (Page header) -->
-      <section class=\"content-header\">
-         <h1>Solicitudes de Miembros</h1>
-       </section>
        <!-- Main content -->
        <section class=\"content\">
          <div class=\"row\">
            <div class=\"col-xs-12\">
              <div class=\"box\">
-               <!-- /.box-header -->
                <div class=\"box-body\">
                  <table id=\"table-Solicitudes\" class=\"table table-bordered table-striped\">
                    <thead>
                    <tr>
-                     <th>Foto</th>
                      <th>Nombre</th>
-                     <th>Carnet</th>
-                     <th>Carrera</th>
-                     <th>Teléfono</th>
-                     <th>Correo</th>
+                     <th>Apellidos</th>
+                     <th>Email</th>
                      <th>Opciones</th>
                    </tr>
                    </thead>
                    <tbody>";
       while($row = $result->fetch_assoc()){
         $Codigo .= "<tr>";
-        $Codigo .= "<td>".$row["id"]."</td>";
-        $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
-        $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
-        $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
-        $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
-        $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
+        $Codigo .= "<td>" .$row["nombre"] . "</td>";
+        $Codigo .= "<td>" .$row["apellidos"] . "</td>";
+        $Codigo .= "<td>" .$row["email"] . "</td>";
         $Codigo .= "<td>" .
                     "<div class=\"input-group-btn\">
-                      <button id=\"edit-group\" type=\"button\" class=\"btn btn-block btn-success btn-flat\">Aceptar</button>
-                      <button id=\"delete-group\" type=\"button\" class=\"btn btn-block btn-danger btn-flat\">Rechazar</button>
-                    </div>" 
+                      <form action=\"BD_Consultas\miembros.php\" method=\"post\">
+                        <input type=\"hidden\" name=\"acceptId\" value=\"".$row["id"]."\" >
+                        <input type=\"submit\"  class=\"btn btn-block btn-success btn-flat\" value=\"Aceptar\">
+                      </form>
+                      <form action=\"BD_Consultas\miembros.php\" method=\"post\">
+                        <input type=\"hidden\" name=\"rejectId\" value=\"".$row["id"]."\" >
+                        <input type=\"submit\"  class=\"btn btn-block btn-danger btn-flat\" value=\"Rechazar\">
+                      </form>
+                    </div>"
                   . "</td>";
         $Codigo .= "</tr>";
       }
@@ -52,13 +47,10 @@
       </tbody>
         <tfoot>
           <tr>
-           <th>Foto</th>
-           <th>Nombre</th>
-           <th>Carnet</th>
-           <th>Carrera</th>
-           <th>Teléfono</th>
-           <th>Correo</th>
-           <th>Opciones</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Opciones</th>
           </tr>
         </tfoot>
       </table>
@@ -73,6 +65,25 @@
       </section>
       <!-- /.content -->";
       echo $Codigo;
+    }else {
+      $Codigo = " <!-- Main content -->
+       <section class=\"content\">
+         <div class=\"row\">
+           <div class=\"col-xs-12\">
+             <div class=\"box\">
+               <div class=\"box-body\">
+               <h2> No hay solicitudes pendientes </h2>
+               </div>
+                   <!-- /.box-body -->
+              </div>
+               <!-- /.box -->
+            </div>
+               <!-- /.col -->
+          </div>
+               <!-- /.row -->
+        </section>
+               <!-- /.content -->";
+               echo $Codigo;
     }
   }
   $conn->close();
@@ -97,8 +108,11 @@
     <?php include('adminNav.php')?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-       <!-- Main content -->
-       <?php tipoSangre(); ?>
+       <!-- Content Header (Page header) -->
+       <section class=\"content-header\">
+          <h1>Solicitudes de Miembros</h1>
+        </section>
+       <?php solicitudesPendientes(); ?>
     </div>
   <!-- ./wrapper -->
 
