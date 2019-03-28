@@ -1,65 +1,190 @@
 <?php
-  function tipoSangre(){
-  require('BD_Consultas\Conexion.php');
-  if ($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
-  }else{
-    $query = "SELECT id, tipoSangre FROM tiposangre";
-    $result = mysqli_query($conn, $query);
-    if($result->num_rows > 0){
-      $Codigo = "
-      <!-- Content Header (Page header) -->
-      <section class=\"content-header\">
-         <h1>Tipo de Sangre</h1>
-       </section>
-       <!-- Main content -->
-       <section class=\"content\">
-         <div class=\"row\">
-           <div class=\"col-xs-12\">
-             <div class=\"box\">
-               <div class=\"box-header\">
-                 <h3 class=\"box-title\">Miembros</h3>
-               </div>
-               <!-- /.box-header -->
-               <div class=\"box-body\">
-                 <table id=\"table-Miembros\" class=\"table table-bordered table-striped\">
-                   <thead>
-                   <tr>
-                     <th>ID</th>
-                     <th>Tipo de Sangre</th>
-                   </tr>
-                   </thead>
-                   <tbody>";
-      while($row = $result->fetch_assoc()){
-        $Codigo .= "<tr>";
-        $Codigo .= "<td>".$row["id"]."</td>";
-        $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
-        $Codigo .= "</tr>";
-      }
-      $Codigo .= "
-      </tbody>
-        <tfoot>
-          <tr>
-            <th>ID</th>
-            <th>Tipo de Sangre</th>
-          </tr>
-        </tfoot>
-      </table>
-      </div>
-          <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
-      </div>
-      <!-- /.col -->
-      </div>
-      <!-- /.row -->
-      </section>
-      <!-- /.content -->";
-      echo $Codigo;
+
+function miembrosActivos(){
+require('BD_Consultas\Conexion.php');
+if ($conn->connect_error){
+  die("Connection failed: " . $conn->connect_error);
+}else{
+  $query = "  SELECT id, nombre, apellidos, email FROM usuario WHERE estado='Activo'";
+  $result = mysqli_query($conn, $query);
+  if($result->num_rows > 0){
+    $Codigo = "
+     <!-- Main content -->
+     <section class=\"content\">
+       <div class=\"row\">
+         <div class=\"col-xs-12\">
+           <div class=\"box\">
+             <div class=\"box-header\">
+               <h3 class=\"box-title\">Activos</h3>
+             </div>
+             <!-- /.box-header -->
+             <div class=\"box-body\">
+
+               <table id=\"table-Miembros\" class=\"table table-bordered table-striped\">
+                 <thead>
+                 <tr>
+                   <th>Nombre</th>
+                   <th>Apellidos</th>
+                   <th>Email</th>
+                   <th>Desactivar</th>
+                 </tr>
+                 </thead>
+                 <tbody>";
+
+    while($row = $result->fetch_assoc()){
+      $Codigo .= "<tr>";
+      $Codigo .= "<td>".$row["nombre"]."</td>";
+      $Codigo .= "<td>" .$row["apellidos"] . "</td>";
+      $Codigo .= "<td>" .$row["email"] . "</td>";
+      $Codigo .= "<td>" ."<form action=\"BD_Consultas\miembros.php\" method=\"post\">
+      <input type=\"hidden\" name=\"deactivateId\" value=\"".$row["id"]."\" >
+      <input type=\"submit\"  class=\"btn btn-block btn-primary btn-flat\" value=\"Desactivar\">
+      </form></td>";
+      $Codigo .= "</tr>";
     }
+    $Codigo .= "
+    </tbody>
+      <tfoot>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Email</th>
+          <th>Desactivar</th>
+        </tr>
+      </tfoot>
+    </table>
+    </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+    </div>
+    <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    </section>
+    <!-- /.content -->";
+    echo $Codigo;
+  }else {
+    $Codigo = " <!-- Main content -->
+     <section class=\"content\">
+       <div class=\"row\">
+         <div class=\"col-xs-12\">
+           <div class=\"box\">
+             <div class=\"box-header\">
+               <h3 class=\"box-title\">Activos</h3>
+             </div>
+             <!-- /.box-header -->
+             <div class=\"box-body\">
+             <h2> No hay miembros activos </h2>
+             </div>
+                 <!-- /.box-body -->
+            </div>
+             <!-- /.box -->
+          </div>
+             <!-- /.col -->
+        </div>
+             <!-- /.row -->
+      </section>
+             <!-- /.content -->";
+             echo $Codigo;
   }
-  $conn->close();
+}
+$conn->close();
+}
+
+
+function miembrosInactivos(){
+require('BD_Consultas\Conexion.php');
+if ($conn->connect_error){
+  die("Connection failed: " . $conn->connect_error);
+}else{
+  $query = "  SELECT id, nombre, apellidos, email FROM usuario WHERE estado='Inactivo'";
+  $result = mysqli_query($conn, $query);
+  if($result->num_rows > 0){
+    $Codigo = "
+     <!-- Main content -->
+     <section class=\"content\">
+       <div class=\"row\">
+         <div class=\"col-xs-12\">
+           <div class=\"box\">
+             <div class=\"box-header\">
+               <h3 class=\"box-title\">Inactivos</h3>
+             </div>
+             <!-- /.box-header -->
+             <div class=\"box-body\">
+
+               <table id=\"table-Miembros\" class=\"table table-bordered table-striped\">
+                 <thead>
+                 <tr>
+                   <th>Nombre</th>
+                   <th>Apellidos</th>
+                   <th>Email</th>
+                   <th>Desactivar</th>
+                 </tr>
+                 </thead>
+                 <tbody>";
+
+    while($row = $result->fetch_assoc()){
+      $Codigo .= "<tr>";
+      $Codigo .= "<td>".$row["nombre"]."</td>";
+      $Codigo .= "<td>" .$row["apellidos"] . "</td>";
+      $Codigo .= "<td>" .$row["email"] . "</td>";
+      $Codigo .= "<td>" ."<form action=\"BD_Consultas\miembros.php\" method=\"post\">
+      <input type=\"hidden\" name=\"activateId\" value=\"".$row["id"]."\" >
+      <input type=\"submit\"  class=\"btn btn-block btn-primary btn-flat\" value=\"Activar\">
+      </form></td>";
+      $Codigo .= "</tr>";
+    }
+    $Codigo .= "
+
+    </tbody>
+      <tfoot>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Email</th>
+          <th>Desactivar</th>
+        </tr>
+      </tfoot>
+    </table>
+    </div>
+        <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+    </div>
+    <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    </section>
+    <!-- /.content -->";
+    echo $Codigo;
+  }else {
+    $Codigo = " <!-- Main content -->
+     <section class=\"content\">
+       <div class=\"row\">
+         <div class=\"col-xs-12\">
+           <div class=\"box\">
+             <div class=\"box-header\">
+               <h3 class=\"box-title\">Inactivos</h3>
+             </div>
+             <!-- /.box-header -->
+             <div class=\"box-body\">
+             <h2> No hay miembros inactivos </h2>
+             </div>
+                 <!-- /.box-body -->
+            </div>
+             <!-- /.box -->
+          </div>
+             <!-- /.col -->
+        </div>
+             <!-- /.row -->
+      </section>
+             <!-- /.content -->";
+             echo $Codigo;
   }
+}
+$conn->close();
+}
 ?>
 
 
@@ -81,7 +206,14 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
        <!-- Main content -->
-       <?php tipoSangre(); ?>
+
+       <!-- Content Header (Page header) -->
+       <section class=\"content-header\">
+          <h1>Miembros</h1>
+        </section>
+
+       <?php miembrosActivos();
+             miembrosInactivos();?>
     </div>
   <!-- ./wrapper -->
 
