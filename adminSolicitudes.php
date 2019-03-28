@@ -25,8 +25,10 @@
                  <table id=\"table-Miembros\" class=\"table table-bordered table-striped\">
                    <thead>
                    <tr>
-                     <th>ID</th>
-                     <th>Tipo de Sangre</th>
+                     <th>Nombre</th>
+                     <th>Carnet</th>
+                     <th>Aceptar</th>
+                     <th>Rechazar</th>
                    </tr>
                    </thead>
                    <tbody>";
@@ -40,8 +42,10 @@
       </tbody>
         <tfoot>
           <tr>
-            <th>ID</th>
-            <th>Tipo de Sangre</th>
+            <th>Nombre</th>
+            <th>Carnet</th>
+            <th>Aceptar</th>
+            <th>Rechazar</th>
           </tr>
         </tfoot>
       </table>

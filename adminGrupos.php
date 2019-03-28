@@ -10,7 +10,7 @@
       $Codigo = "
       <!-- Content Header (Page header) -->
       <section class=\"content-header\">
-         <h1>Tipo de Sangre</h1>
+         <h1>Grupos Disponibles</h1>
        </section>
        <!-- Main content -->
        <section class=\"content\">
@@ -69,7 +69,7 @@
  <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>SIRA | Data Tables</title>
+   <title>SIRA | Grupos</title>
    <!-- Tell the browser to be responsive to screen width -->
    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
    <?php include('headerLinks.php')?>
@@ -80,8 +80,13 @@
     <?php include('adminNav.php')?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-       <!-- Main content -->
-       <?php tipoSangre(); ?>
+      <!-- Main content -->
+      <?php tipoSangre(); ?>
+
+      <section class="content-header">
+        <h1>Crear Nuevo Grupo</h1>
+      </section>
+
     </div>
   <!-- ./wrapper -->
 
