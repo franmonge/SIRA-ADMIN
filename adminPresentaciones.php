@@ -8,6 +8,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   
   <?php include('headerLinks.php')?>
+  <?php include('BD_Consultas\Grupos.php')?>
 
   </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -28,14 +29,8 @@
       <div class="col-md-12">
         <div class="form-group col-md-6">
           <label>Seleccione el grupo</label>
-          <select class="form-control select2" style="width: 100%;">
-            <option selected="selected">Alabama</option>
-            <option>Alaska</option>
-            <option>California</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
+          <select class="form-control select2" name="GruposDisponibles" id="GruposDisponibles" style="width: 100%;">
+            <?php dropdownGrupos()?>
           </select>
         </div>
       </div>
