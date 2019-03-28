@@ -4,7 +4,7 @@
 		if($conn->connect_error){
 			die("Connection failed: ".$conn->connect_error);
 		}else{
-			$sql = "SELECT Nombre FROM grupo";
+			$sql = "SELECT Nombre FROM grupo WHERE Estado = '1'";
 			$result = mysqli_query($conn, $sql);
 			if($result->num_rows > 0){
 				while($row = $result->fetch_assoc()){
@@ -23,7 +23,7 @@
 		if ($conn->connect_error){
 			die("Connection failed: " . $conn->connect_error);
 		}else{
-			$sql = "SELECT Nombre, Descripcion FROM grupo";
+			$sql = "SELECT Nombre, Descripcion FROM grupo WHERE Estado = '1'";
 			$result = mysqli_query($conn, $sql);
 			if($result->num_rows > 0){
 				
