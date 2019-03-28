@@ -1,40 +1,44 @@
-<?php  
+<?php
   $archivo_actual = $_SERVER['PHP_SELF'] ; //Regresa el nombre del archivo actual
   switch($archivo_actual) //Valido en que archivo estoy para generar mi CSS de selección
   {
-    case "/sira-admin/admin.php":        
+    case "/sira-admin/admin.php":
       $a = "class=\"active\"";
       $b = "";$c = "";$d = "";$e = "";$f = "";$g = "";$h = "";
       break;
-    case "/sira-admin/adminGrupos.php":        
+    case "/sira-admin/adminGrupos.php":
       $b = "class=\"active\"";
       $a = "";$c = "";$d = "";$e = "";$f = "";$g = "";$h = "";
       break;
-    case "/sira-admin/adminPresentaciones.php":        
+    case "/sira-admin/adminPresentaciones.php":
       $c = "class=\"active\"";
       $a = "";$b = "";$d = "";$e = "";$f = "";$g = "";$h = "";
       break;
-    case "/sira-admin/adminMiembros.php":        
+    case "/sira-admin/adminMiembros.php":
       $d = "class=\"active\"";
       $a = "";$b = "";$c = "";$e = "";$f = "";$g = "";$h = "";
       break;
-    case "/sira-admin/adminSolicitudes.php":        
+    case "/sira-admin/adminSolicitudes.php":
       $e = "class=\"active\"";
       $a = "";$b = "";$c = "";$d = "";$f = "";$g = "";$h = "";
       break;
-    case "/sira-admin/adminAsistencia.php":        
+    case "/sira-admin/adminAsistencia.php":
       $f = "class=\"active\"";
       $a = "";$b = "";$c = "";$d = "";$e = "";$g = "";$h = "";
       break;
-    case "/sira-admin/adminReportes.php":        
+    case "/sira-admin/adminReportes.php":
       $g = "class=\"active\"";
       $a = "";$b = "";$c = "";$d = "";$e = "";$f = "";$h = "";
       break;
-    case "/sira-admin/adminGaleria.php":        
+    case "/sira-admin/adminGaleria.php":
       $h = "class=\"active\"";
       $a = "";$b = "";$c = "";$d = "";$e = "";$f = "";$g = "";
       break;
-  }        
+    case "/sira-admin/adminAdministradores.php":
+      $h = "class=\"active\"";
+      $a = "";$b = "";$c = "";$d = "";$e = "";$f = "";$g = "";
+      break;
+  }
 ?>
 
 
@@ -130,6 +134,10 @@
         <a href="#"> <i class="fa fa-image"></i> <span>Galería</span></a>
       </li>
 
+      <li <?php echo $g; ?>>
+        <a href="adminAdministradores.php"> <i class="fa fa-shield"></i> <span>Administradores</span></a>
+      </li>
+
       <li>
         <a href="pages/UI/icons.html">
           <i class="fa fa-laptop"></i>
@@ -154,4 +162,3 @@
   </section>
   <!-- /.sidebar -->
 </aside>
-
