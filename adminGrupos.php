@@ -1,68 +1,3 @@
-<?php
-  function tipoSangre(){
-  require('Conexion.php');
-  if ($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
-  }else{
-    $query = "SELECT id, tipoSangre FROM tiposangre";
-    $result = mysqli_query($conn, $query);
-    if($result->num_rows > 0){
-      $Codigo = "
-      <!-- Content Header (Page header) -->
-      <section class=\"content-header\">
-         <h1>Grupos Disponibles</h1>
-       </section>
-       <!-- Main content -->
-       <section class=\"content\">
-         <div class=\"row\">
-           <div class=\"col-xs-12\">
-             <div class=\"box\">
-               <div class=\"box-header\">
-                 <h3 class=\"box-title\">Miembros</h3>
-               </div>
-               <!-- /.box-header -->
-               <div class=\"box-body\">
-                 <table id=\"table-Miembros\" class=\"table table-bordered table-striped\">
-                   <thead>
-                   <tr>
-                     <th>Nombre</th>
-                     <th>Descripción</th>
-                   </tr>
-                   </thead>
-                   <tbody>";
-      while($row = $result->fetch_assoc()){
-        $Codigo .= "<tr>";
-        $Codigo .= "<td>".$row["id"]."</td>";
-        $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
-        $Codigo .= "</tr>";
-      }
-      $Codigo .= "
-      </tbody>
-        <tfoot>
-          <tr>
-            <th>Nombre</th>
-            <th>Descripción</th>
-          </tr>
-        </tfoot>
-      </table>
-      </div>
-          <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
-      </div>
-      <!-- /.col -->
-      </div>
-      <!-- /.row -->
-      </section>
-      <!-- /.content -->";
-      echo $Codigo;
-    }
-  }
-  $conn->close();
-  }
-?>
-
-
 
  <!DOCTYPE html>
  <html>
@@ -73,15 +8,17 @@
    <!-- Tell the browser to be responsive to screen width -->
    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
    <?php include('headerLinks.php')?>
+   <?php include('BD_Consultas\Grupos.php')?>
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
     <?php include('adminNav.php')?>
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Main content -->
-      <?php tipoSangre(); ?>
+      <?php getGrupos(); ?>
 
       <section class="content-header">
         <h1>Crear Nuevo Grupo</h1>
@@ -97,28 +34,28 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form">
+        <form role="form" id="form-grupos" action="BD_Consultas\Grupos.php" method="POST">
           <div class="box-body">         
             <div class="form-group ">
               <label for="exampleInputEmail1">Nombre</label>
-              <input type="text" class="form-control" placeholder="Nombre">
+              <input type="text" class="form-control" placeholder="Nombre" name="NombreGrupo">
             </div>
             <div class="form-group">
               <label>Descripción</label>
-              <textarea class="form-control" rows="3" placeholder="Descripción"></textarea>
+              <textarea class="form-control" rows="3" placeholder="Descripción" name="DescripcionGrupo"></textarea>
             </div>
             <div class="form-group">
               <label>Historia</label>
-              <textarea class="form-control" rows="3" placeholder="Historia"></textarea>
+              <textarea class="form-control" rows="3" placeholder="Historia" name="HistoriaGrupo"></textarea>
             </div>
             <div class="form-group">
               <label for="exampleInputFile">Imagen</label>
-              <input type="file" id="exampleInputFile">
+              <input type="file" id="exampleInputFile" name="ImagenGrupo">
             </div> 
           </div>
           <!-- /.box-body -->
           <div class="box-footer">
-            <button type="submit" class="btn btn-primary">Crear Grupo</button>
+            <button type="submit" class="btn btn-primary" name="btnCrearGrupo">Crear Grupo</button>
           </div>
         </form>
       </div>
