@@ -1,6 +1,6 @@
 <?php
   function tipoSangre(){
-  require('Conexion.php');
+  require('BD_Consultas\Conexion.php');
   if ($conn->connect_error){
     die("Connection failed: " . $conn->connect_error);
   }else{
@@ -10,25 +10,25 @@
       $Codigo = "
       <!-- Content Header (Page header) -->
       <section class=\"content-header\">
-         <h1>Tipo de Sangre</h1>
+         <h1>Solicitudes de Miembros</h1>
        </section>
        <!-- Main content -->
        <section class=\"content\">
          <div class=\"row\">
            <div class=\"col-xs-12\">
              <div class=\"box\">
-               <div class=\"box-header\">
-                 <h3 class=\"box-title\">Miembros</h3>
-               </div>
                <!-- /.box-header -->
                <div class=\"box-body\">
-                 <table id=\"table-Miembros\" class=\"table table-bordered table-striped\">
+                 <table id=\"table-Solicitudes\" class=\"table table-bordered table-striped\">
                    <thead>
                    <tr>
+                     <th>Foto</th>
                      <th>Nombre</th>
                      <th>Carnet</th>
-                     <th>Aceptar</th>
-                     <th>Rechazar</th>
+                     <th>Carrera</th>
+                     <th>Teléfono</th>
+                     <th>Correo</th>
+                     <th>Opciones</th>
                    </tr>
                    </thead>
                    <tbody>";
@@ -36,16 +36,29 @@
         $Codigo .= "<tr>";
         $Codigo .= "<td>".$row["id"]."</td>";
         $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
+        $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
+        $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
+        $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
+        $Codigo .= "<td>" .$row["tipoSangre"] . "</td>";
+        $Codigo .= "<td>" .
+                    "<div class=\"input-group-btn\">
+                      <button id=\"edit-group\" type=\"button\" class=\"btn btn-block btn-success btn-flat\">Aceptar</button>
+                      <button id=\"delete-group\" type=\"button\" class=\"btn btn-block btn-danger btn-flat\">Rechazar</button>
+                    </div>" 
+                  . "</td>";
         $Codigo .= "</tr>";
       }
       $Codigo .= "
       </tbody>
         <tfoot>
           <tr>
-            <th>Nombre</th>
-            <th>Carnet</th>
-            <th>Aceptar</th>
-            <th>Rechazar</th>
+           <th>Foto</th>
+           <th>Nombre</th>
+           <th>Carnet</th>
+           <th>Carrera</th>
+           <th>Teléfono</th>
+           <th>Correo</th>
+           <th>Opciones</th>
           </tr>
         </tfoot>
       </table>
@@ -73,7 +86,7 @@
  <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>SIRA | Data Tables</title>
+   <title>SIRA | Solicitudes</title>
    <!-- Tell the browser to be responsive to screen width -->
    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
    <?php include('headerLinks.php')?>
@@ -110,7 +123,7 @@
   <script>
   $(function () {
     $('#example1').DataTable()
-    $('#table-Miembros').DataTable({
+    $('#table-Solicitudes').DataTable({
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,

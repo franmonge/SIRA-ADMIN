@@ -45,6 +45,7 @@
                      <th>Nombre</th>
                      <th>Descripción</th>
                      <th>Imagen</th>
+                     <th>Opciones</th>
                    </tr>
                    </thead>
                    <tbody>";
@@ -52,6 +53,13 @@
         $Codigo .= "<tr>";
         $Codigo .= "<td>".$row["Nombre"]."</td>";
         $Codigo .= "<td>" .$row["Descripcion"] . "</td>";
+        $Codigo .= "<td>" .$row["Descripcion"] . "</td>";
+        $Codigo .= "<td>" .
+        			"<div class=\"input-group-btn\">
+                  		<button id=\"edit-group\" type=\"button\" class=\"btn btn-block btn-warning btn-flat\">Editar</button>
+                  		<button id=\"delete-group\" type=\"button\" class=\"btn btn-block btn-danger btn-flat\">Eliminar</button>
+                	</div>" 
+                	. "</td>";
         $Codigo .= "</tr>";
       }
       $Codigo .= "
@@ -60,6 +68,8 @@
           <tr>
             <th>Nombre</th>
             <th>Descripción</th>
+            <th>Imagen</th>
+            <th>Opciones</th>
           </tr>
         </tfoot>
       </table>
